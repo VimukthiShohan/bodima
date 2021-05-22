@@ -9,14 +9,14 @@ const Login = () => {
   return (
     <Container>
       <Input
-        label="Username :"
+        label="Username"
         onChangeText={onChangeText}
         value={text}
         iconPosition="right"
         // error={'This field is required'}
       />
       <Input
-        label="Password :"
+        label="Password"
         onChangeText={onChangeText}
         value={text}
         icon={<Text>HIDE</Text>}
