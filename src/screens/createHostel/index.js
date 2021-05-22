@@ -1,11 +1,12 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
+import Container from '../../components/common/Container';
 
 const createHostel = () => {
   return (
-    <View>
+    <Container>
       <Text>Hello from createHostel</Text>
-    </View>
+    </Container>
   );
 };
 

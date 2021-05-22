@@ -7,7 +7,7 @@ import Register from '../screens/Register';
 const AuthNavigator = () => {
   const HomeStack = createStackNavigator();
   return (
-    <HomeStack.Navigator>
+    <HomeStack.Navigator screenOptions={{headerShown: false}}>
       <HomeStack.Screen name={LOGIN} component={Login} />
       <HomeStack.Screen name={REGISTER} component={Register} />
     </HomeStack.Navigator>
