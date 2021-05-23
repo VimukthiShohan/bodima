@@ -47,8 +47,6 @@ const RegisterComponent = () => {
           />
           <Input
             label="Password"
-            icon={<Text>Show</Text>}
-            secureTextEntry={true}
             iconPosition="right"
             placeholder="Enter password"
           />
