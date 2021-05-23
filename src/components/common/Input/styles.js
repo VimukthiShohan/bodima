@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   textInput: {
     flex: 1,
-    color: colors.grey,
+    color: 'black',
     width: '100%',
   },
   inputContainer: {
