@@ -20,7 +20,7 @@ export default StyleSheet.create({
   registerSection: {
     flexDirection: 'row',
   },
-  registerLink: {
+  linkBTN: {
     paddingLeft: 14,
     color: colors.primary,
     textDecorationLine: 'underline',

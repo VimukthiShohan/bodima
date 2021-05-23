@@ -42,7 +42,7 @@ const LoginComponent = () => {
                 onPress={() => {
                   navigate(REGISTER);
                 }}>
-                <Text style={styles.registerLink}>Register</Text>
+                <Text style={styles.linkBTN}>Register</Text>
               </TouchableOpacity>
             </View>
           </View>
