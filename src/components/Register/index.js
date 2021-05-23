@@ -5,10 +5,10 @@ import {Text, Image, View} from 'react-native';
 import CustomButton from '../../components/common/CustomButton';
 import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {REGISTER} from '../../constants/routeNames';
+import {LOGIN} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -19,12 +19,30 @@ const LoginComponent = () => {
         style={styles.logoImage}
       />
       <View>
-        <Text style={styles.sTitle}>Please login from here</Text>
+        <Text style={styles.sTitle}>Create account from here</Text>
         <View style={styles.form}>
+          <Input
+            label="First name"
+            iconPosition="right"
+            placeholder="Enter First name"
+            // error={'This field is required'}
+          />
+          <Input
+            label="Last name"
+            iconPosition="right"
+            placeholder="Enter Last name"
+            // error={'This field is required'}
+          />
           <Input
             label="Email"
             iconPosition="right"
             placeholder="Enter Email"
+            // error={'This field is required'}
+          />
+          <Input
+            label="Mobile number"
+            iconPosition="right"
+            placeholder="Enter Mobile number"
             // error={'This field is required'}
           />
           <Input
@@ -36,13 +54,13 @@ const LoginComponent = () => {
           />
           <View style={styles.form}>
             <CustomButton primary title="Submit" />
-            <View style={styles.registerSection}>
-              <Text>Need to have an account?</Text>
+            <View style={styles.loginSection}>
+              <Text>Already have an account?</Text>
               <TouchableOpacity
                 onPress={() => {
-                  navigate(REGISTER);
+                  navigate(LOGIN);
                 }}>
-                <Text style={styles.linkBTN}>Register</Text>
+                <Text style={styles.linkBTN}>Login</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -52,4 +70,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default RegisterComponent;
