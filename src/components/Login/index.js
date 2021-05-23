@@ -14,7 +14,7 @@ const LoginComponent = () => {
       />
       <Input label="Password" icon={<Text>HIDE</Text>} iconPosition="right" />
 
-      <CustomButton primary title="Submit" />
+      <CustomButton primary title="Submit now" />
     </Container>
   );
 };
