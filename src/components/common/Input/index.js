@@ -16,17 +16,19 @@ const Input = ({
   const [focused, setfocused] = useState(false);
 
   const getFlexPosition = () => {
-    if (iconPosition === 'left') {
-      return 'row';
-    } else if (iconPosition === 'right') {
-      return 'row-reverse';
+    if (icon && iconPosition) {
+      if (iconPosition === 'left') {
+        return 'row';
+      } else if (iconPosition === 'right') {
+        return 'row-reverse';
+      }
     }
   };
+
   const getBorderColor = () => {
     if (focused) {
       return colors.primary;
     }
-
     if (error) {
       return colors.danger;
     } else {
