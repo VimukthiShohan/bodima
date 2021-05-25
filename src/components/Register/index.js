@@ -8,7 +8,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {LOGIN} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 
-const RegisterComponent = () => {
+const RegisterComponent = (onSubmit, onChange, form, errors) => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -25,33 +25,49 @@ const RegisterComponent = () => {
             label="First name"
             iconPosition="right"
             placeholder="Enter First name"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'firstName', value});
+            }}
+            error={errors.firstName}
           />
           <Input
             label="Last name"
             iconPosition="right"
             placeholder="Enter Last name"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'lastName', value});
+            }}
+            error={errors.lastName}
           />
           <Input
             label="Email"
             iconPosition="right"
             placeholder="Enter Email"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'email', value});
+            }}
+            error={errors.email}
           />
           <Input
             label="Mobile number"
             iconPosition="right"
             placeholder="Enter Mobile number"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'mobileNumber', value});
+            }}
+            error={errors.mobileNumber}
           />
           <Input
             label="Password"
             iconPosition="right"
             placeholder="Enter password"
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
+            error={errors.password}
           />
           <View style={styles.form}>
-            <CustomButton primary title="Submit" />
+            <CustomButton onPress={onSubmit} primary title="Submit" />
             <View style={styles.loginSection}>
               <Text>Already have an account?</Text>
               <TouchableOpacity
