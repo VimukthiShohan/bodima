@@ -8,7 +8,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {LOGIN} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 
-const RegisterComponent = (onSubmit, onChange, form, errors) => {
+const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
   const {navigate} = useNavigation();
   return (
     <Container>
