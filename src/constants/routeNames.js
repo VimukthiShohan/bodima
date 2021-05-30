@@ -6,4 +6,4 @@ export const CREATE_HOSTEL = 'createHostel';
 export const SETTINGS = 'Settings';
 export const LOGIN = 'Login';
 export const REGISTER = 'Register';
-export const HOME_NAVIGATOR = 'Home Drawer';
+export const HOME_NAVIGATOR = 'HomeNavigator';

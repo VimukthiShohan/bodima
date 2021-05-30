@@ -6,14 +6,14 @@ import {GlobalContext} from '../context/Provider';
 
 const AppNavContainer = () => {
   const {
-    authState: {isLoggedIn},
+    authState: {logged},
   } = useContext(GlobalContext);
 
-  console.log('isLoggedIn :>>', isLoggedIn);
+  console.log('isLoggedIn :>>', logged);
 
   return (
     <NavigationContainer>
-      {isLoggedIn ? <DrawerNavigator /> : <AuthNavigator />}
+      {logged ? <DrawerNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

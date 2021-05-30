@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import RegisterComponent from '../../components/Register';
-import register from '../../context/actions/auth/register';
+import {useAuthReducerMethods} from '../../context/reducers/auth';
 import {GlobalContext} from '../../context/Provider';
 
 const Register = () => {
@@ -10,6 +10,7 @@ const Register = () => {
     authDispatch,
     authState: {error, loading, data},
   } = useContext(GlobalContext);
+  const {register} = useAuthReducerMethods(authDispatch);
 
   // console.log('authState :>>', authState);
   const onChange = ({name, value}) => {
@@ -75,7 +76,7 @@ const Register = () => {
       Object.values(form).every(item => item.trim().length > 0) &&
       Object.values(errors).every(item => !item)
     ) {
-      register(form)(authDispatch);
+      register(form);
     }
   };
 
@@ -83,7 +84,6 @@ const Register = () => {
     <RegisterComponent
       onSubmit={onSubmit}
       onChange={onChange}
-      form={form}
       errors={errors}
       error={error}
       loading={loading}

@@ -7,8 +7,9 @@ import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {REGISTER} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
+import Message from '../common/Message';
 
-const LoginComponent = () => {
+const LoginComponent = ({onSubmit, onChange, loading, error, errors}) => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -20,11 +21,26 @@ const LoginComponent = () => {
       />
       <View>
         <View style={styles.form}>
+          {/*<Message*/}
+          {/*  retry*/}
+          {/*  retryFn={() => {*/}
+          {/*    console.log('222', 222);*/}
+          {/*  }}*/}
+          {/*  primary*/}
+          {/*  onDismiss={() => {}}*/}
+          {/*  message="Invalid credentials"*/}
+          {/*/>*/}
+          {/*<Message error onDismiss={() => {}} message="Invalid credentials" />*/}
+          {/*<Message info onDismiss={() => {}} message="Invalid credentials" />*/}
+          {/*<Message success onDismiss={() => {}} message="Invalid credentials" />*/}
           <Input
             label="Email"
             iconPosition="right"
             placeholder="Enter Email"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'email', value});
+            }}
+            error={errors.email || error?.email?.[0]}
           />
           <Input
             label="Password"
@@ -32,9 +48,19 @@ const LoginComponent = () => {
             secureTextEntry={true}
             iconPosition="right"
             placeholder="Enter password"
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
+            error={errors.password || error?.password?.[0]}
           />
           <View style={styles.form}>
-            <CustomButton primary title="Submit" />
+            <CustomButton
+              loading={loading}
+              onPress={onSubmit}
+              disabled={loading}
+              primary
+              title="Submit"
+            />
             <View style={styles.registerSection}>
               <Text>Need to create an account?</Text>
               <TouchableOpacity
