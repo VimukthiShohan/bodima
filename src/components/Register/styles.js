@@ -6,8 +6,8 @@ export default StyleSheet.create({
     height: 100,
     width: 100,
     alignSelf: 'center',
-    marginTop: 1,
-    marginBottom: 1,
+    marginTop: 10,
+    marginBottom: 30,
   },
   sTitle: {
     fontSize: 21,

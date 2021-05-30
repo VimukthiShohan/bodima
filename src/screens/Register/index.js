@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import RegisterComponent from '../../components/Register';
+import register from '../../context/actions/auth/register';
+import {GlobalContext} from '../../context/Provider';
 
 const Register = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
+  const {
+    authDispatch,
+    authState: {error, loading, data},
+  } = useContext(GlobalContext);
 
+  // console.log('authState :>>', authState);
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
 
@@ -36,7 +43,7 @@ const Register = () => {
 
   const onSubmit = () => {
     //validations
-    console.log('form :>>', form);
+    // console.log('form :>>', form);
 
     if (!form.firstName) {
       setErrors(prev => {
@@ -63,6 +70,13 @@ const Register = () => {
         return {...prev, password: 'Please add a password'};
       });
     }
+    if (
+      Object.values(form).length === 5 &&
+      Object.values(form).every(item => item.trim().length > 0) &&
+      Object.values(errors).every(item => !item)
+    ) {
+      register(form)(authDispatch);
+    }
   };
 
   return (
@@ -71,6 +85,8 @@ const Register = () => {
       onChange={onChange}
       form={form}
       errors={errors}
+      error={error}
+      loading={loading}
     />
   );
 };

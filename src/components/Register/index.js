@@ -8,7 +8,14 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {LOGIN} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 
-const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
+const RegisterComponent = ({
+  onSubmit,
+  onChange,
+  form,
+  loading,
+  error,
+  errors,
+}) => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -19,8 +26,8 @@ const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
         style={styles.logoImage}
       />
       <View>
-        <Text style={styles.sTitle}>Create account from here</Text>
         <View style={styles.form}>
+          {/*{error.error && <Text>{error.error}</Text>}*/}
           <Input
             label="First name"
             iconPosition="right"
@@ -28,7 +35,7 @@ const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
             onChangeText={value => {
               onChange({name: 'firstName', value});
             }}
-            error={errors.firstName}
+            error={errors.firstName || error?.firstName?.[0]}
           />
           <Input
             label="Last name"
@@ -37,7 +44,7 @@ const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
             onChangeText={value => {
               onChange({name: 'lastName', value});
             }}
-            error={errors.lastName}
+            error={errors.lastName || error?.lastName?.[0]}
           />
           <Input
             label="Email"
@@ -46,7 +53,7 @@ const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
             onChangeText={value => {
               onChange({name: 'email', value});
             }}
-            error={errors.email}
+            error={errors.email || error?.email?.[0]}
           />
           <Input
             label="Mobile number"
@@ -55,7 +62,7 @@ const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
             onChangeText={value => {
               onChange({name: 'mobileNumber', value});
             }}
-            error={errors.mobileNumber}
+            error={errors.mobileNumber || error?.mobileNumber?.[0]}
           />
           <Input
             label="Password"
@@ -64,10 +71,16 @@ const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
             onChangeText={value => {
               onChange({name: 'password', value});
             }}
-            error={errors.password}
+            error={errors.password || error?.password?.[0]}
           />
           <View style={styles.form}>
-            <CustomButton onPress={onSubmit} primary title="Submit" />
+            <CustomButton
+              loading={loading}
+              onPress={onSubmit}
+              disabled={loading}
+              primary
+              title="Submit"
+            />
             <View style={styles.loginSection}>
               <Text>Already have an account?</Text>
               <TouchableOpacity

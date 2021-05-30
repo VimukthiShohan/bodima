@@ -19,7 +19,6 @@ const LoginComponent = () => {
         style={styles.logoImage}
       />
       <View>
-        <Text style={styles.sTitle}>Please login from here</Text>
         <View style={styles.form}>
           <Input
             label="Email"
@@ -37,7 +36,7 @@ const LoginComponent = () => {
           <View style={styles.form}>
             <CustomButton primary title="Submit" />
             <View style={styles.registerSection}>
-              <Text>Need to have an account?</Text>
+              <Text>Need to create an account?</Text>
               <TouchableOpacity
                 onPress={() => {
                   navigate(REGISTER);
