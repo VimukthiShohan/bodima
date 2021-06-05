@@ -7,7 +7,6 @@ import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {REGISTER} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
-import Message from '../common/Message';
 
 const LoginComponent = ({onSubmit, onChange, loading, error, errors}) => {
   const {navigate} = useNavigation();
@@ -21,18 +20,6 @@ const LoginComponent = ({onSubmit, onChange, loading, error, errors}) => {
       />
       <View>
         <View style={styles.form}>
-          {/*<Message*/}
-          {/*  retry*/}
-          {/*  retryFn={() => {*/}
-          {/*    console.log('222', 222);*/}
-          {/*  }}*/}
-          {/*  primary*/}
-          {/*  onDismiss={() => {}}*/}
-          {/*  message="Invalid credentials"*/}
-          {/*/>*/}
-          {/*<Message error onDismiss={() => {}} message="Invalid credentials" />*/}
-          {/*<Message info onDismiss={() => {}} message="Invalid credentials" />*/}
-          {/*<Message success onDismiss={() => {}} message="Invalid credentials" />*/}
           <Input
             label="Email"
             iconPosition="right"

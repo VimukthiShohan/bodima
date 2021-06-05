@@ -4,7 +4,6 @@ import {
   initialState,
   hostelCreateReducer,
 } from '../../context/reducers/hostelCreate';
-import {GlobalContext} from '../../context/Provider';
 import HostelComponent from '../../components/HostelComponents';
 
 const CreateHostel = () => {
