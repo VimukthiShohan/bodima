@@ -1,6 +1,6 @@
 import AxiosAPI from '../../helpers/axiosInterceptor';
 import {useNavigation} from '@react-navigation/native';
-import {LOGIN} from '../../constants/routeNames';
+import {HOME_NAVIGATOR} from '../../constants/routeNames';
 import {ACTIONSLOGIN} from './login';
 
 export const ACTIONS = {
@@ -9,7 +9,13 @@ export const ACTIONS = {
   REGISTER_FAIL: 'REGISTER_FAIL',
 };
 
-const auth = (state, {type, payload}) => {
+export const initialState = {
+  loading: false,
+  data: {},
+  error: '',
+};
+
+export const hostelCreateReducer = (state, {type, payload}) => {
   switch (type) {
     case ACTIONSLOGIN.LOGIN_LOADING:
     case ACTIONS.REGISTER_LOADING:
@@ -30,15 +36,15 @@ const auth = (state, {type, payload}) => {
   }
 };
 
-export function useAuthReducerMethods(dispatch) {
+export function useHostelCreateReducerMethods(dispatch) {
   const navigation = useNavigation();
 
-  async function register(payload) {
+  async function createHostel(payload) {
     try {
-      const {data} = await AxiosAPI.post('/auth/signup', payload);
-      // console.log('data', data);
-      if (data.status === 200) {
-        navigation.navigate(LOGIN);
+      const data = await AxiosAPI.post('/v1/hostel/create', payload);
+      console.log('data', data);
+      if (data.status === 201) {
+        navigation.navigate(HOME_NAVIGATOR);
       } else {
         return false;
       }
@@ -47,8 +53,6 @@ export function useAuthReducerMethods(dispatch) {
     }
   }
   return {
-    register,
+    createHostel,
   };
 }
-
-export default auth;

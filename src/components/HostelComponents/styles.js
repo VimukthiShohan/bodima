@@ -2,16 +2,27 @@ import {StyleSheet} from 'react-native';
 import colors from '../../assets/theme/colors';
 
 export default StyleSheet.create({
-  item: {
-    backgroundColor: colors.grey,
-    padding: 15,
-    marginVertical: 8,
-    marginHorizontal: 2,
+  logoImage: {
+    height: 100,
+    width: 100,
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 30,
   },
-  hostelTitle: {
-    fontSize: 18,
+  sTitle: {
+    fontSize: 21,
+    textAlign: 'center',
+    paddingVertical: 20,
   },
-  hostelLocation: {
-    fontSize: 12,
+  form: {
+    paddingTop: 1,
+  },
+  loginSection: {
+    flexDirection: 'row',
+  },
+  linkBTN: {
+    paddingLeft: 14,
+    color: colors.primary,
+    textDecorationLine: 'underline',
   },
 });

@@ -1,5 +1,4 @@
 import AxiosAPI from '../../helpers/axiosInterceptor';
-import {useNavigation} from '@react-navigation/native';
 
 export const ACTIONSLOGIN = {
   LOGIN_LOADING: 'LOGIN_LOADING',
@@ -30,12 +29,9 @@ const authLogin = (state, {type, payload}) => {
 };
 
 export function useLoginReducerMethods(dispatch) {
-  const navigation = useNavigation();
-
   async function login(payload) {
     try {
       const {data} = await AxiosAPI.post('/auth/login', payload).then(res => {
-        console.log('res.data', res.data);
         dispatch({
           type: ACTIONSLOGIN.LOGIN_SUCCESS,
           payload: res.data,

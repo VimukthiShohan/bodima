@@ -9,7 +9,7 @@ const AppNavContainer = () => {
     authState: {logged},
   } = useContext(GlobalContext);
 
-  console.log('isLoggedIn :>>', logged);
+  // console.log('isLoggedIn :>>', logged);
 
   return (
     <NavigationContainer>
