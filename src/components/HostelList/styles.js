@@ -14,4 +14,7 @@ export default StyleSheet.create({
   hostelLocation: {
     fontSize: 12,
   },
+  wrapper: {
+    padding: 20,
+  },
 });

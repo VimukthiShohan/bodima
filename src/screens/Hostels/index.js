@@ -1,6 +1,5 @@
 import React, {useState, useReducer, useEffect} from 'react';
 import {Text, FlatList, View, RefreshControl} from 'react-native';
-import Container from '../../components/common/Container';
 import styles from '../../components/HostelList/styles';
 import hostelReducer, {
   useHostelRecuderMethods,
@@ -35,16 +34,15 @@ function Hostels() {
   };
 
   return (
-    <Container>
-      <FlatList
-        data={state.data}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      />
-    </Container>
+    <FlatList
+      style={styles.wrapper}
+      data={state.data}
+      renderItem={renderItem}
+      keyExtractor={item => item._id}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+    />
   );
 }
 
