@@ -12,7 +12,7 @@ export const loginInitialState = {
   logged: false,
 };
 
-const authLogin = (state, {type, payload}) => {
+const authLoginReducer = (state, {type, payload}) => {
   switch (type) {
     case ACTIONSLOGIN.LOGIN_LOADING:
       return {...state, loading: true};
@@ -52,4 +52,4 @@ export function useLoginReducerMethods(dispatch) {
   };
 }
 
-export default authLogin;
+export default authLoginReducer;

@@ -1,7 +1,4 @@
-import React from 'react';
 import axios from 'axios';
-
-let headers = {};
 
 const AxiosAPI = axios.create({
   baseURL: 'http://10.0.2.2:3000',
