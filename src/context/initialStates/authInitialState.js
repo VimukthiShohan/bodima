@@ -1,5 +1,5 @@
 export default {
-  logged: true,
+  logged: false,
   data: {},
   error: null,
   loading: false,

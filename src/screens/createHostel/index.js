@@ -12,9 +12,9 @@ const CreateHostel = () => {
   const [state, dispatch] = useReducer(hostelCreateReducer, initialState);
   const {createHostel} = useHostelCreateReducerMethods(dispatch);
 
-  console.log('state', state);
-
+  // console.log('state', state);
   // console.log('authState :>>', authState);
+  
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
 
