@@ -34,9 +34,10 @@ export function useAuthReducerMethods(dispatch) {
   const navigation = useNavigation();
 
   async function register(payload) {
+    console.log('Hi from auth');
     try {
       const {data} = await AxiosAPI.post('/auth/signup', payload);
-      // console.log('data', data);
+      console.log('data', data);
       if (data.status === 200) {
         navigation.navigate(LOGIN);
       } else {

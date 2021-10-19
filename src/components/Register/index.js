@@ -10,6 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const RegisterComponent = ({onSubmit, onChange, loading, error, errors}) => {
   const {navigate} = useNavigation();
+
   return (
     <Container>
       <Image

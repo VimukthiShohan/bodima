@@ -39,7 +39,6 @@ export function useLoginReducerMethods(dispatch) {
       });
       if (data.status === 200) {
         return {logged: true};
-        //   console.log('data', data);
       } else {
         return {logged: false};
       }
